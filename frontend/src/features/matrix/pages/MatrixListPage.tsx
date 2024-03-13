@@ -79,20 +79,17 @@ export const MatrixListPage = observer(() => {
     });
     const sortedResults = filteredSecontTimeResults.sort((a, b) => {
         const sortProperty = sortButton as keyof MatrixData;
-    
+
         const aValue: string | number | null = a[sortProperty];
         const bValue: string | number | null = b[sortProperty];
-    
+
         if (aValue === null || bValue === null) {
             return 0;
         }
-    
-        const numericAValue = typeof aValue === 'string' ? parseFloat(aValue) : aValue;
-        const numericBValue = typeof bValue === 'string' ? parseFloat(bValue) : bValue;
-    
+
         return sortTypeButton
-            ? numericBValue > numericAValue ? 1 : numericBValue < numericAValue ? -1 : 0
-            : numericAValue > numericBValue ? 1 : numericAValue < numericBValue ? -1 : 0;
+            ? bValue > aValue ? 1 : bValue < aValue ? -1 : 0
+            : aValue > bValue ? 1 : aValue < bValue ? -1 : 0;
     });
     
     const [changedDicountMatrix, setChangedDicountMatrix] = useState<number[]>([])
