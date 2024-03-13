@@ -37,7 +37,6 @@ export const JournalPage = observer(() => {
                 return obj;
         }
     })
-    console.log(updatedArray[0])
     const filtredArray = updatedArray.filter((item: any) =>
         item.name.toLocaleLowerCase().includes(searchValue.toLocaleLowerCase()) ||
         item.eventType.toLocaleLowerCase().includes(searchValue) ||
@@ -72,6 +71,9 @@ export const JournalPage = observer(() => {
                 <div className={styles.sortlist}>
                     <div className={styles.sortlistAction}>
                         Событие
+                    </div>
+                    <div className={styles.sortlistId}>
+                        ID
                     </div>
                     <div className={styles.sortlistName}>
                         Название

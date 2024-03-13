@@ -44,7 +44,6 @@ export const LoginForm = ({
 }: loginFormProps) => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     const disabledButton = !(password && emailRegex.test(email.trim()));
-    console.log(disabledButton);
     return (
         <div className={styles.container}>
             <div className={styles.logo}>{logo} </div>

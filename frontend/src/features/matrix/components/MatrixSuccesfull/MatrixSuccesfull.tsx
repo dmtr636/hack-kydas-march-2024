@@ -7,7 +7,6 @@ export const MatrixSuccesfull = ({ currentBaseline, currentDiscount, onClick }: 
     const matrix = store.matrix.allMatrix
     const baselineMatix = matrix.filter((item) => item.id === currentBaseline)
     const discountMatrix = matrix.filter(item => currentDiscount.includes(item.id));
-    console.log(discountMatrix)
     const discountMatrixArray = discountMatrix.map((item) => {
         return <div key={item.id} className={styles.matrixItem}><IconMatrix />{item.name} ({item.type})</div>
     })

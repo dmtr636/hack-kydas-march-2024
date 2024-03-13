@@ -95,7 +95,6 @@ export const MatrixViewPage = observer(() => {
                     disabled={!store.matrixData.selectedMatrixData.length}
                     onClick={() => {
                         store.matrixData.selectedMatrixData.forEach((d) => (d.price = null));
-                        store.matrixData.selectedMatrixData = [];
                     }}
                 >
                     Удалить цену

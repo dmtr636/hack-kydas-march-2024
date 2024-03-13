@@ -30,6 +30,9 @@ export const JournalItem = ({ action, name, date, status, author, matrixId }: { 
             <div className={styles.sortlistAction}>
                 {action}
             </div>
+            <div className={styles.sortlistmatrixId}>
+                {matrixId}
+            </div>
             <div className={styles.sortlistName}>
                 {name}
             </div>

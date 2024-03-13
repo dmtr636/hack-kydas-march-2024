@@ -1,3 +1,4 @@
+import { IconEmail } from "src/ui/assets/icons";
 import { Avatar } from "../Avatar/Avatar";
 import styles from "./UserCard.module.scss";
 
@@ -30,7 +31,7 @@ export const UserCard = (props: UserCardProps) => {
                     </div>
                     <div className={styles.role}>{role}</div>
                 </div>
-                <div className={styles.email}>{email}</div>
+                <div className={styles.email}><IconEmail/>{email}</div>
             </div>
         </div>
     );

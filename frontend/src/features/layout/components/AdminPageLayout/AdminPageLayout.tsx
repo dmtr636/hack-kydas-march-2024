@@ -11,10 +11,11 @@ interface AdminPageLayoutProps {
     children: ReactNode;
     actions?: ReactNode[];
     onBack?: () => void;
+    sticky?: boolean;
 }
 
 export const AdminPageLayout = (props: AdminPageLayoutProps) => {
-    const { title, children, actions, titleChip, onBack }: AdminPageLayoutProps = props;
+    const { title, children, actions, titleChip, onBack, sticky = true }: AdminPageLayoutProps = props;
     const navigate = useNavigate();
 
     const logout = () => {
@@ -41,6 +42,7 @@ export const AdminPageLayout = (props: AdminPageLayoutProps) => {
                 avatar={renderAvatar()}
                 actions={actions}
                 onBack={onBack}
+                sticky={sticky}
             />
             <div className={styles.content}>{children}</div>
         </div>

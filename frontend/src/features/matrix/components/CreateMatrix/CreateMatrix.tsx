@@ -54,7 +54,6 @@ export const CreateMatrix = observer(({ onClose }: { onClose: () => void }) => {
                 navigate(`/matrix/${response.data.id}/view`)
             })
     }
-    console.log(data)
     const disabledButton = nameValue && (radioValue === "BASELINE" ? true : segmentnumber)
     return (
         <div className={styles.container}>

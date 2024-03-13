@@ -25,7 +25,6 @@ export const EmailInput = ({
          */
         onChange(event.target.value);
         const isValid = emailRegex.test(event.target.value);
-        console.log(isValid);
         setEmailIsValid(isValid);
     };
     const [isInputFocused, setIsInputFocused] = useState(false);

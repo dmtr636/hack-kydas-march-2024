@@ -45,11 +45,14 @@ export const MatrixData = observer((props: MatrixDataProps) => {
 
     useEffect(() => {
         store.matrixData.fetchMatrixData(matrix.id);
+    }, [matrix.id, store.matrixData.location?.id, store.matrixData.category?.id]);
+
+    useEffect(() => {
         return () => {
             store.matrixData.setLocationSearch("");
             store.matrixData.setCategorySearch("");
         };
-    }, [matrix.id]);
+    }, [])
 
     return (
         <div className={styles.layout}>
@@ -211,7 +214,7 @@ export const MatrixData = observer((props: MatrixDataProps) => {
                                 }
                                 value={store.matrixData.categorySearch}
                                 formName={"Выбрать категорию"}
-                                formText={"Отображается 500 000 категорий"}
+                                formText={`Отображается ${store.matrixData.getCategories().length + 1} категорий`}
                                 size={"small"}
                                 endIcon={
                                     store.matrixData.categorySearch.length > 0 && (
@@ -231,7 +234,7 @@ export const MatrixData = observer((props: MatrixDataProps) => {
                                             store.matrixData.setCategorySearch(
                                                 store.matrixData.category?.name ?? "",
                                             ),
-                                        100,
+                                        200,
                                     )
                                 }
                             />
@@ -254,7 +257,7 @@ export const MatrixData = observer((props: MatrixDataProps) => {
                                 }
                                 value={store.matrixData.locationSearch}
                                 formName={"Выбрать локацию"}
-                                formText={"Отображается 300 зон локаций"}
+                                formText={`Отображается ${store.matrixData.getLocations().length + 1} зон локаций`}
                                 size={"small"}
                                 endIcon={
                                     store.matrixData.locationSearch.length > 0 && (
@@ -274,7 +277,7 @@ export const MatrixData = observer((props: MatrixDataProps) => {
                                             store.matrixData.setLocationSearch(
                                                 store.matrixData.location?.name ?? "",
                                             ),
-                                        100,
+                                        200,
                                     )
                                 }
                             />

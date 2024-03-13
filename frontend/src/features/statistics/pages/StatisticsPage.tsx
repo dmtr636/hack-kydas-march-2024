@@ -1,7 +1,7 @@
 import { observer } from 'mobx-react-lite'
 import { AdminPageLayout } from 'src/features/layout/components/AdminPageLayout/AdminPageLayout';
 import styles from "./styles.module.scss"
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Button } from 'src/ui/components/Button/Button';
 import { Checkbox } from 'src/ui/components/Checkbox/Checkbox';
 import { DropdownList } from 'src/ui/components/DropdownList/DropdownList';
@@ -319,14 +319,16 @@ export const StatisticsPage = observer(() => {
             </div>
         </div>
     const counterValue = Number(isCheckedConv) + Number(isCheckedAvg) + Number(isCheckedCount) + Number(isCheckedCountAdv)
-    console.log(activeSort)
+    useEffect(()=>{
+        store.matrix.getLocation()
+    },[])
     return (
         <AdminPageLayout title='Статистика' actions={[
-            <Button counterValue={counterValue > 0 ? counterValue : undefined} onClick={downloadImage} key={"clone"}>Сформировать отчет</Button>,
+            <Button disabled={Boolean(!(counterValue))}counterValue={counterValue > 0 ? counterValue : undefined} onClick={downloadImage} key={"clone"}>Сформировать отчет</Button>,
             <Button onClick={toggleDrawer(true)} key={"logs"} type={"secondary"}>
                 Готовые отчёты
             </Button>,
-        ]}>
+        ]} sticky={false}>
             <div className={styles.buttonsContainer}>
                 <Button onClick={() => setActiveSort("all")} color='neutral' type={activeSort === "all" ? "primary" : "tertiary"}>Все</Button>
                 <Button onClick={() => setActiveSort("salesCount")} color='neutral' type={activeSort === "salesCount" ? "primary" : "tertiary"}>Количество продаж</Button>
@@ -373,7 +375,7 @@ export const StatisticsPage = observer(() => {
                                     setTimeout(() =>
                                         store.matrixData.setLocationSearch(
                                             store.matrixData.location?.name ?? "",
-                                        ), 100
+                                        ), 200
                                     )
                                 }
                             />
@@ -440,30 +442,30 @@ export const StatisticsPage = observer(() => {
                     <div onClick={() => setisCheckedAvg(!isCheckedAvg)} className={styles.statisticHeaderCheckbox}><Checkbox color='accent' checked={isCheckedAvg} onChange={setisCheckedAvg} /> Средняя цена</div>
                     <div className={styles.inputSearch}>
                         <DropdownList
-                            value={store.matrixData.location}
-                            options={store.matrixData.locationInputValues}
+                            value={store.matrixData2.location}
+                            options={store.matrixData2.locationInputValues}
                             color={"neutral"}
                             fullWidth={true}
                             onChange={(option) => {
-                                store.matrixData.location = option.value as any;
-                                store.matrixData.locationSearch = option.name;
+                                store.matrixData2.location = option.value as any;
+                                store.matrixData2.locationSearch = option.name;
                             }}
                         >
                             <Input
                                 placeholder={"Область или город"}
                                 onChange={(event) =>
-                                    store.matrixData.setLocationSearch(event.target.value)
+                                    store.matrixData2.setLocationSearch(event.target.value)
                                 }
-                                value={store.matrixData.locationSearch}
+                                value={store.matrixData2.locationSearch}
 
                                 size={"small"}
                                 endIcon={
-                                    store.matrixData.locationSearch.length > 0 && (
+                                    store.matrixData2.locationSearch.length > 0 && (
                                         <ButtonIcon
                                             pale={true}
                                             type="tertiary"
                                             color="neutral"
-                                            onClick={() => store.matrixData.setLocationSearch("")}
+                                            onClick={() => store.matrixData2.setLocationSearch("")}
                                         >
                                             <IconClear />
                                         </ButtonIcon>
@@ -471,9 +473,9 @@ export const StatisticsPage = observer(() => {
                                 }
                                 onBlur={() =>
                                     setTimeout(() =>
-                                        store.matrixData.setLocationSearch(
-                                            store.matrixData.location?.name ?? "",
-                                        ), 100
+                                        store.matrixData2.setLocationSearch(
+                                            store.matrixData2.location?.name ?? "",
+                                        ), 200
                                     )
                                 }
                             />
@@ -492,7 +494,7 @@ export const StatisticsPage = observer(() => {
                     <div className={styles.statisticBodyleft}>
 
                         <div className={styles.buttonblock}>
-                            <Button onClick={() => setActiveCategoryAvg("category")} type={activeCategoryAvg === 'category' ? 'primary' : 'tertiary'} color={activeCategoryCount === 'category' ? 'accent' : 'neutral'}>Категории</Button>
+                            <Button onClick={() => setActiveCategoryAvg("category")} type={activeCategoryAvg === 'category' ? 'primary' : 'tertiary'} color={activeCategoryAvg === 'category' ? 'accent' : 'neutral'}>Категории</Button>
                             <Button onClick={() => setActiveCategoryAvg("service")} type={activeCategoryAvg === 'service' ? 'primary' : 'tertiary'} color={activeCategoryAvg === 'service' ? 'accent' : 'neutral'}>Платные услуги</Button>
                         </div>
                         <div className={styles.grafik}>
@@ -540,30 +542,30 @@ export const StatisticsPage = observer(() => {
                     <div className={styles.statisticHeaderCheckbox} onClick={()=>setisCheckedCountAdv(!isCheckedCountAdv)}><Checkbox color='accent' checked={isCheckedCountAdv} onChange={setisCheckedCountAdv} /> Количество объявлений</div>
                     <div className={styles.inputSearch}>
                         <DropdownList
-                            value={store.matrixData.location}
-                            options={store.matrixData.locationInputValues}
+                            value={store.matrixData3.location}
+                            options={store.matrixData3.locationInputValues}
                             color={"neutral"}
                             fullWidth={true}
                             onChange={(option) => {
-                                store.matrixData.location = option.value as any;
-                                store.matrixData.locationSearch = option.name;
+                                store.matrixData3.location = option.value as any;
+                                store.matrixData3.locationSearch = option.name;
                             }}
                         >
                             <Input
                                 placeholder={"Область или город"}
                                 onChange={(event) =>
-                                    store.matrixData.setLocationSearch(event.target.value)
+                                    store.matrixData3.setLocationSearch(event.target.value)
                                 }
-                                value={store.matrixData.locationSearch}
+                                value={store.matrixData3.locationSearch}
 
                                 size={"small"}
                                 endIcon={
-                                    store.matrixData.locationSearch.length > 0 && (
+                                    store.matrixData3.locationSearch.length > 0 && (
                                         <ButtonIcon
                                             pale={true}
                                             type="tertiary"
                                             color="neutral"
-                                            onClick={() => store.matrixData.setLocationSearch("")}
+                                            onClick={() => store.matrixData3.setLocationSearch("")}
                                         >
                                             <IconClear />
                                         </ButtonIcon>
@@ -571,9 +573,9 @@ export const StatisticsPage = observer(() => {
                                 }
                                 onBlur={() =>
                                     setTimeout(() =>
-                                        store.matrixData.setLocationSearch(
-                                            store.matrixData.location?.name ?? "",
-                                        ), 100
+                                        store.matrixData3.setLocationSearch(
+                                            store.matrixData3.location?.name ?? "",
+                                        ), 200
                                     )
                                 }
                             />
@@ -640,30 +642,30 @@ export const StatisticsPage = observer(() => {
                     <div className={styles.statisticHeaderCheckbox} onClick={()=>setisCheckedConv(!isCheckedConv)}><Checkbox color='accent' checked={isCheckedConv} onChange={setisCheckedConv} /> Конверсия</div>
                     <div className={styles.inputSearch}>
                         <DropdownList
-                            value={store.matrixData.location}
-                            options={store.matrixData.locationInputValues}
+                            value={store.matrixData4.location}
+                            options={store.matrixData4.locationInputValues}
                             color={"neutral"}
                             fullWidth={true}
                             onChange={(option) => {
-                                store.matrixData.location = option.value as any;
-                                store.matrixData.locationSearch = option.name;
+                                store.matrixData4.location = option.value as any;
+                                store.matrixData4.locationSearch = option.name;
                             }}
                         >
                             <Input
                                 placeholder={"Область или город"}
                                 onChange={(event) =>
-                                    store.matrixData.setLocationSearch(event.target.value)
+                                    store.matrixData4.setLocationSearch(event.target.value)
                                 }
-                                value={store.matrixData.locationSearch}
+                                value={store.matrixData4.locationSearch}
 
                                 size={"small"}
                                 endIcon={
-                                    store.matrixData.locationSearch.length > 0 && (
+                                    store.matrixData4.locationSearch.length > 0 && (
                                         <ButtonIcon
                                             pale={true}
                                             type="tertiary"
                                             color="neutral"
-                                            onClick={() => store.matrixData.setLocationSearch("")}
+                                            onClick={() => store.matrixData4.setLocationSearch("")}
                                         >
                                             <IconClear />
                                         </ButtonIcon>
@@ -671,9 +673,9 @@ export const StatisticsPage = observer(() => {
                                 }
                                 onBlur={() =>
                                     setTimeout(() =>
-                                        store.matrixData.setLocationSearch(
-                                            store.matrixData.location?.name ?? "",
-                                        ), 100
+                                        store.matrixData4.setLocationSearch(
+                                            store.matrixData4.location?.name ?? "",
+                                        ), 200
                                     )
                                 }
                             />
@@ -737,12 +739,12 @@ export const StatisticsPage = observer(() => {
                     <div className={styles.drawerBlockHeader}>Готовые отчеты <ButtonIcon size='large' color='neutral' onClick={toggleDrawer(false)}><IconClose /></ButtonIcon></div>
                     <div className={styles.drawerBlock}>
                         <div className={styles.drawerBlockItem}>Отчет за 15.02.2034 <Button onClick={downloadImage} type='tertiary'>Скачать</Button></div>
-                        <div className={styles.drawerBlockItem}>Отчет за 15.02.2034 <Button onClick={downloadImage} type='tertiary'>Скачать</Button></div>
-                        <div className={styles.drawerBlockItem}>Отчет за 15.02.2034 <Button onClick={downloadImage} type='tertiary'>Скачать</Button></div>
-                        <div className={styles.drawerBlockItem}>Отчет за 15.02.2034 <Button onClick={downloadImage} type='tertiary'>Скачать</Button></div>
-                        <div className={styles.drawerBlockItem}>Отчет за 15.02.2034 <Button onClick={downloadImage} type='tertiary'>Скачать</Button></div>
-                        <div className={styles.drawerBlockItem}>Отчет за 15.02.2034 <Button onClick={downloadImage} type='tertiary'>Скачать</Button></div>
-                        <div className={styles.drawerBlockItem}>Отчет за 15.02.2034 <Button onClick={downloadImage} type='tertiary'>Скачать</Button></div>
+                        <div className={styles.drawerBlockItem}>Отчет за 11.02.2034 <Button onClick={downloadImage} type='tertiary'>Скачать</Button></div>
+                        <div className={styles.drawerBlockItem}>Отчет за 09.02.2034 <Button onClick={downloadImage} type='tertiary'>Скачать</Button></div>
+                        <div className={styles.drawerBlockItem}>Отчет за 06.02.2034 <Button onClick={downloadImage} type='tertiary'>Скачать</Button></div>
+                        <div className={styles.drawerBlockItem}>Отчет за 01.02.2034 <Button onClick={downloadImage} type='tertiary'>Скачать</Button></div>
+                        <div className={styles.drawerBlockItem}>Отчет за 23.01.2034 <Button onClick={downloadImage} type='tertiary'>Скачать</Button></div>
+                        <div className={styles.drawerBlockItem}>Отчет за 12.01.2034 <Button onClick={downloadImage} type='tertiary'>Скачать</Button></div>
                     </div>
                 </div>
             </Drawer>

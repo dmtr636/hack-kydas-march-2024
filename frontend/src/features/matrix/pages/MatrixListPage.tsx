@@ -79,25 +79,27 @@ export const MatrixListPage = observer(() => {
     });
     const sortedResults = filteredSecontTimeResults.sort((a, b) => {
         const sortProperty = sortButton as keyof MatrixData;
-
+    
         const aValue: string | number | null = a[sortProperty];
         const bValue: string | number | null = b[sortProperty];
-
+    
         if (aValue === null || bValue === null) {
             return 0;
         }
-
+    
+        const numericAValue = typeof aValue === 'string' ? parseFloat(aValue) : aValue;
+        const numericBValue = typeof bValue === 'string' ? parseFloat(bValue) : bValue;
+    
         return sortTypeButton
-            ? bValue > aValue ? 1 : bValue < aValue ? -1 : 0
-            : aValue > bValue ? 1 : aValue < bValue ? -1 : 0;
+            ? numericBValue > numericAValue ? 1 : numericBValue < numericAValue ? -1 : 0
+            : numericAValue > numericBValue ? 1 : numericAValue < numericBValue ? -1 : 0;
     });
-    console.log(currentBaselineId)
+    
     const [changedDicountMatrix, setChangedDicountMatrix] = useState<number[]>([])
     const handleCheckboxChange = (itemId: number) => {
         const isSelected = selectedCheckboxes.includes(itemId);
         const isSelectedChanged = changedDicountMatrix.includes(itemId);
 
-        console.log(selectedCheckboxes)
         if (isSelected) {
             setSelectedCheckboxes(selectedCheckboxes.filter(id => id !== itemId));
         } else {
@@ -125,7 +127,6 @@ export const MatrixListPage = observer(() => {
         />;
     });
     const [selectedCheckboxes, setSelectedCheckboxes] = useState<number[]>([]);
-    console.log(selectedCheckboxes)
 
     const [open, setOpen] = useState(false)
     const [openSuccesfull, setOpenSuccesfull] = useState(false)
@@ -151,7 +152,6 @@ export const MatrixListPage = observer(() => {
 
 
     }
-    console.log(data)
     const sendNewMatrix = () => {
         axios.post(POST_NEW_SET, data)
             .then(() => {
@@ -241,7 +241,7 @@ export const MatrixListPage = observer(() => {
                     <div className={styles.sortStatus}>
                         <Button onClick={() => OnClickTypeButton("status")} size='small' pale={(sortButton === "status") ? false : true} color='neutral' type='tertiary' endIcon={<IconSort style={{ transform: (sortTypeButton && sortButton === "status") ? "rotate(180deg)" : "rotate(0deg)" }} />}>Статус</Button></div>
                     <div className={styles.sortCount}>
-                        <Button onClick={() => OnClickTypeButton("count")} size='small' pale={(sortButton === "count") ? false : true} color='neutral' type='tertiary' endIcon={<IconSort style={{ transform: (sortTypeButton && sortButton === "count") ? "rotate(180deg)" : "rotate(0deg)" }} />}>Кол-во цен</Button></div>
+                        <Button onClick={() => OnClickTypeButton("priceCount")} size='small' pale={(sortButton === "priceCount") ? false : true} color='neutral' type='tertiary' endIcon={<IconSort style={{ transform: (sortTypeButton && sortButton === "priceCount") ? "rotate(180deg)" : "rotate(0deg)" }} />}>Кол-во цен</Button></div>
                     <div className={styles.sortSegment}>
                         Сегмент</div>
                 </div>

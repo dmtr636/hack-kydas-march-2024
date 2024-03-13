@@ -2,10 +2,10 @@
     height: 72px;
     display: flex;
     align-items: center;
-    border-bottom:1px solid var(--color-components-stroke-neutral-pale, #E6E6E6);
+    border-bottom: 1px solid var(--color-components-stroke-neutral-pale, #E6E6E6);
     cursor: pointer;
-    &:nth-last-child(1)
-    {
+
+    &:nth-last-child(1) {
         border-bottom-left-radius: 12px;
         border-bottom-right-radius: 12px;
         border-bottom: 0px;
@@ -31,8 +31,23 @@
     min-width: 137px;
 }
 
+.sortlistmatrixId {
+    margin-left: 33px;
+    overflow: hidden;
+    color: #9C9C9C;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    /* Числовые значения в таблице */
+    font-family: Manrope;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    width: 9px;
+}
+
 .sortlistName {
-    margin-left: 44px;
+    margin-left: 37px;
     overflow: hidden;
     color: var(--color-components-text-neutral, #070707);
     text-overflow: ellipsis;
@@ -63,7 +78,7 @@
 }
 
 .sortlistTime {
-    margin-left: 30px;
+    margin-left: 31px;
     overflow: hidden;
     color: var(--color-components-text-neutral, #070707);
     text-overflow: ellipsis;
@@ -79,11 +94,14 @@
 }
 
 .sortlistStatus {
-    margin-left: 12px;
+    margin-left: 13px;
+    min-width: 93px;
 }
 
+
+
 .sortlistAuthor {
-    padding-left: 33px;
+    padding-left: 32px;
     overflow: hidden;
     color: var(--color-components-text-neutral, #070707);
     text-overflow: ellipsis;
