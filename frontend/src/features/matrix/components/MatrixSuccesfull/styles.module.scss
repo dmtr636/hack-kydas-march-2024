@@ -1,0 +1,69 @@
+.container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: var(--padding-m, 12px);
+    border: 1px solid var(--color-components-stroke-neutral-pale, #E6E6E6);
+    background: var(--color-components-background-contrast, #FFF);
+    width: 444px;
+    /*     height: 560px;
+ */
+    padding: 24px 32px;
+    display: flex;
+    flex-direction: column;
+}
+
+.header {
+    color: var(--color-components-text-positive, #087F3F);
+    /* Desktop/Headings/H5 */
+    font-family: Manrope;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 120%;
+    /* 24px */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.subHead {
+    margin-top: 7px;
+    color: var(--color-components-text-neutral-secondary, #202020);
+    /* Desktop/Body/Subhead-M */
+    font-family: Manrope;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 130%;
+    /* 18.2px */
+}
+
+.matrixBlock {
+    border-radius: var(--main-s, 8px);
+    background: var(--color-components-background-product, #F5F5F5);
+    margin-top: 16px;
+    padding: 20px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.button {
+    margin-top: 40px;
+}
+
+.matrixItem {
+    display: flex;
+    gap: 8px;
+    color: var(--color-components-text-neutral-secondary, #202020);
+    align-items: center;
+    /* Desktop/Body/Subhead-M */
+    font-family: Manrope;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 130%;
+    /* 18.2px */
+}

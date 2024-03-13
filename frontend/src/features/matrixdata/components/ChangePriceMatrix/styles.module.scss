@@ -1,0 +1,74 @@
+.container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: var(--padding-m, 12px);
+    border: 1px solid var(--color-components-stroke-neutral-pale, #E6E6E6);
+    background: var(--color-components-background-contrast, #FFF);
+    width: 424px;
+    height: 421px;
+    padding: 24px 32px;
+    display: flex;
+    flex-direction: column;
+}
+
+.header {
+    color: var(--color-components-text-accent, #003EDE);
+    /* Desktop/Headings/H5 */
+    font-family: Manrope;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 120%;
+    /* 24px */
+}
+
+.nameInput {
+    margin-top: 20px;
+}
+
+.matrixType {
+    margin-top: 24px;
+}
+
+.matrixTypeHead {
+    color: var(--color-components-text-neutral-secondary, #202020);
+    font-family: Manrope;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 130%;
+}
+
+.radioGroup {
+    display: flex;
+    gap: 40px;
+    margin-top: 16px;
+}
+
+.segmetType {
+    margin-top: 24px;
+}
+
+.buttonBlock {
+    display: flex;
+    margin-top: auto;
+    gap: 16px;
+}
+
+.typeLabel {
+    margin-top: 20px;
+}
+
+.radioGroup {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.input {
+    margin-top: 28px;
+    margin-bottom: 16px;
+}

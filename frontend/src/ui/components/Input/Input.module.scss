@@ -1,0 +1,344 @@
+@import "src/ui/styles/vars";
+@import "src/ui/styles/functions";
+
+.inputContainer {
+    position: relative;
+    width: 100%;
+    color: var(--color-components-text-neutral);
+    font-family: Manrope;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    letter-spacing: 0.15px;
+
+    &.small {
+        height: 40px;
+        font-size: 13px;
+    }
+
+    &.medium {
+        height: 48px;
+        font-size: 15px;
+    }
+
+    &.large {
+        height: 56px;
+        font-size: 16px;
+    }
+
+    &:hover {
+        .inputLabel {
+            color: var(--black-primary-hover, #474747);
+        }
+
+        .inputBorder:not(.active, .error, .disabled) {
+            border: 1px solid var(--black-secondary-hover, #757575);
+        }
+
+        .input {
+            &::placeholder {
+                color: color-mix(in oklab, #070707, white 16%);
+            }
+        }
+
+        .icon {
+            path {
+                fill: #070707;
+            }
+        }
+    }
+
+    &:has(.inputBorder.disabled) {
+        background-color: disabled-primary($color-components-background-neutral-pale);
+
+        svg path {
+            fill: #afafaf;
+        }
+    }
+}
+
+.inputBorder {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    border: 1px solid #9c9c9cff;
+    border-radius: 8px;
+
+    transition: border-color 0.3s ease;
+
+    &.active {
+        border: 1px solid #003ede;
+    }
+
+    &.error {
+        border: 1px solid #c2180f;
+    }
+
+    &.disabled {
+        border: 1px solid disabled-primary($color-components-stroke-neutral-tertiary);
+
+        &:hover {
+            border: 1px solid var(--color-components-stroke-neutral-tertiary, #9c9c9c) !important;
+        }
+
+        .icon {
+            path {
+                fill: red;
+                opacity: 0.68;
+            }
+
+            &:hover {
+                path {
+                    fill: #070707;
+                    opacity: 0.68;
+                }
+            }
+        }
+    }
+}
+
+.inputLabel {
+    position: absolute;
+
+    transition:
+        top 0.1s,
+        font-size 0.1s;
+    pointer-events: none;
+    color: var(--black-secondary-pale);
+
+    &:hover {
+        color: #c2180f;
+    }
+
+    &.active {
+        display: none;
+    }
+}
+
+.input {
+    flex-grow: 1;
+    height: 100%;
+    width: 100%;
+    border-radius: 8px;
+    font-size: 1em;
+    font-family: Manrope;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    letter-spacing: 0.32px;
+
+    &.password {
+        font-size: 1.6em;
+        letter-spacing: -3px;
+    }
+
+    &::placeholder {
+        color: color-mix(in oklab, #070707, #ffffff 40%);
+
+        &:hover {
+            color: color-mix(in oklab, #070707, #ffffff 40%);
+        }
+    }
+
+    &.focus {
+        color: #070707;
+
+        /* &::placeholder {
+           color: color-mix(in oklab, #070707, #ffffff 40%);
+        } */
+    }
+
+    &.disabled {
+        color: disabled-primary($color-components-text-neutral);
+
+        &::placeholder {
+            color: color-mix(in oklab, #070707, #ffffff 40%);
+        }
+
+        &:hover {
+            &::placeholder {
+                color: color-mix(in oklab, #070707, #ffffff 40%);
+            }
+        }
+    }
+}
+
+.inputContent {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+
+    &.small {
+        gap: 8px;
+        padding: 0 12px;
+    }
+
+    &.medium {
+        gap: 12px;
+        padding: 0 16px;
+    }
+
+    &.large {
+        gap: 16px;
+        padding: 0 20px;
+    }
+}
+
+.formName {
+    color: var(--color-components-text-neutral-secondary, #202020);
+
+    font-family: Manrope;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 130%;
+    padding-bottom: var(--padding-s);
+
+    &.error {
+        color: #c2180f;
+    }
+}
+
+.formText {
+    color: var(--color-components-text-neutral, );
+
+    font-family: Manrope;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    padding-top: 8px;
+
+    &.error {
+        color: #c2180f;
+    }
+}
+
+.iconBlock {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    /*     cursor: pointer;
+ */
+    &.endIcon {
+        cursor: pointer;
+
+        &.small {
+            width: 28px;
+            height: 28px;
+
+            &:hover {
+                border-radius: 14px;
+                background-color: #e6e6e6;
+            }
+
+            gap: 8px;
+        }
+
+        &.medium {
+            gap: 12px;
+            width: 36px;
+            height: 36px;
+
+            &:hover {
+                border-radius: 18px;
+                background-color: #e6e6e6;
+            }
+        }
+
+        &.large {
+            width: 44px;
+            height: 44px;
+
+            &:hover {
+                border-radius: 22px;
+                background-color: #e6e6e6;
+            }
+        }
+    }
+}
+
+.wrongEmail {
+    /* Desktop/Little */
+    font-family: Manrope;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    letter-spacing: 0.12px;
+    color: var(--red-primary-active);
+    color: #c2180f;
+    margin-top: 8px;
+    margin-bottom: -8px;
+}
+
+.passShow {
+    width: 24px;
+    height: 24px;
+}
+
+.passShowBlock {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+    width: 36px;
+    height: 36px;
+    border-radius: 18px;
+    z-index: 2;
+
+    svg path {
+        fill: var(--red-primary-active);
+    }
+
+    svg path[stroke] {
+        stroke: var(--red-primary-active);
+    }
+}
+
+.icon {
+    path {
+        fill: color-mix(in oklab, #070707, #ffffff 40%);
+    }
+
+    &.small {
+        height: 14px;
+        width: 14px;
+    }
+
+    &.medium {
+        height: 18px;
+        width: 18px;
+    }
+
+    &.large {
+        height: 24px;
+        width: 24px;
+    }
+
+    &.focus {
+        path {
+            fill: #070707;
+        }
+    }
+
+    &.disabled {
+        path {
+            fill: #070707;
+            opacity: 0.68;
+        }
+
+        &:hover {
+            path {
+                fill: #070707;
+                opacity: 0.68;
+            }
+        }
+    }
+}

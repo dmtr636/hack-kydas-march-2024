@@ -1,0 +1,154 @@
+.container {
+    border-top: 1px solid var(--color-components-stroke-neutral-pale, #E6E6E6);
+    height: 72px;
+    display: flex;
+    align-items: center;
+
+    &:nth-last-child(1) {
+        border-bottom-right-radius: 12px;
+        border-bottom-left-radius: 12px;
+
+    }
+
+
+}
+
+.button {
+    padding-left: 32px;
+    padding-right: 19px;
+    border-right: 1px solid var(--color-components-stroke-neutral-pale, #E6E6E6);
+    ;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+
+    &:nth-last-child(1) {
+
+        background-color: red;
+
+    }
+
+
+    &:hover {
+        background-color: #F7F9FF;
+
+
+    }
+}
+
+.id {
+    margin-left: 20px;
+    min-width: 23px;
+    color: var(--color-components-text-neutral-tertiary, #9C9C9C);
+
+    white-space: nowrap;
+    /* Название матрицы или тип */
+    font-family: Manrope;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.name {
+    width: 171px;
+    margin-left: 15px;
+    overflow: hidden;
+    color: var(--color-components-text-neutral, #070707);
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-family: Manrope;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.type {
+    margin-left: 15px;
+
+    width: 60px;
+    overflow: hidden;
+    color: var(--color-components-text-neutral-tertiary, #9C9C9C);
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-family: Manrope;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.date {
+
+    color: var(--color-components-text-neutral-secondary, #202020);
+    text-overflow: ellipsis;
+    margin-left: 36px;
+    width: 74px;
+    font-family: Manrope;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.status {
+    /*     background-color: red;
+ */
+    margin-left: 73px;
+    width: 92px;
+    color: var(--color-components-text-neutral, #070707);
+    /* Desktop/Button/M */
+    font-family: Manrope;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.priceCount {
+    margin-left: 58px;
+
+    color: var(--color-components-text-neutral-secondary, #202020);
+    /* Числовые значения в таблице */
+    font-family: Manrope;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    width: 75px;
+}
+
+.segmentId {
+    margin-left: 46px;
+    overflow: hidden;
+    color: var(--color-components-text-neutral-secondary, #202020);
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    /* Числовые значения в таблице */
+    font-family: Manrope;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.block {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    height: 71px;
+    cursor: pointer;
+
+    &:nth-last-child(1) {
+        border-bottom-right-radius: 12px;
+
+    }
+
+    &:hover {
+        background-color: #F7F9FF;
+        /*    border-bottom: 1px solid var(--color-components-stroke-neutral-pale, #E6E6E6);
+            ; */
+    }
+}

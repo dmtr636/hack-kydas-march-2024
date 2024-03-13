@@ -1,0 +1,40 @@
+.container {
+    width: 360px;
+}
+
+.inputs {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-top: 28px;
+}
+
+.checkbox {
+    margin-top: 20px;
+}
+
+.buttonsBLock {
+    margin-top: 28px;
+    display: flex;
+    gap: 20px;
+}
+
+.enterButton {
+    width: 90px;
+}
+
+.alert {
+    margin-top: 28px;
+}
+
+.logo {
+    color: var(--color-components-text-neutral, #070707);
+
+    /* Desktop/Headings/H4 */
+    font-family: Manrope;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 120%;
+    /* 28.8px */
+}

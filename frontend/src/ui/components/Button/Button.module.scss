@@ -1,0 +1,266 @@
+@import "src/ui/styles/vars";
+@import "src/ui/styles/functions";
+
+.button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: var(--main-s);
+    position: relative;
+    font-weight: 600;
+    white-space: nowrap;
+    overflow: hidden;
+
+    &:not(&.clickable) {
+        pointer-events: none;
+    }
+
+    &.fullWidth {
+        width: 100%;
+    }
+
+    &.focused {
+        .overlayBackground {
+            background-color: var(--color-states-invert-focus);
+        }
+    }
+
+    &.iconVariant {
+        width: auto;
+        aspect-ratio: 1;
+        border-radius: 50%;
+
+        .overlay,
+        .overlayBackground {
+            border-radius: 50%;
+        }
+
+        .icon {
+            position: absolute;
+        }
+    }
+
+    &.primary {
+        &.accent {
+            color: var(--color-components-text-contrast);
+            background-color: var(--color-components-background-accent);
+        }
+        &.negative {
+            color: var(--color-components-text-contrast);
+            background-color: var(--color-components-background-negative);
+        }
+        &.positive {
+            color: var(--color-components-text-contrast);
+            background-color: var(--color-components-background-positive);
+        }
+        &.neutral {
+            color: var(--color-components-text-contrast);
+            background-color: var(--color-components-background-neutral);
+        }
+        &.contrast {
+            color: var(--color-components-text-neutral);
+            background-color: var(--color-components-background-contrast);
+        }
+    }
+    &.secondary {
+        &.accent {
+            background-color: var(--color-components-background-accent-pale);
+        }
+        &.negative {
+            background-color: var(--color-components-background-negative-pale);
+        }
+        &.positive {
+            background-color: var(--color-components-background-positive-pale);
+        }
+        &.neutral {
+            background-color: var(--color-components-background-neutral-pale);
+        }
+        &.contrast {
+            background-color: var(--color-components-background-contrast-pale);
+        }
+    }
+    &.secondary,
+    &.tertiary,
+    &.outlined {
+        &.accent {
+            color: var(--color-components-text-accent);
+        }
+        &.negative {
+            color: var(--color-components-text-negative);
+        }
+        &.positive {
+            color: var(--color-components-text-positive);
+        }
+        &.neutral {
+            color: var(--color-components-text-neutral);
+        }
+        &.contrast {
+            color: var(--color-components-text-contrast);
+        }
+    }
+    &.outlined {
+        border: 1px solid currentColor;
+        .overlay {
+            margin: -1px;
+        }
+    }
+
+    &.large {
+        --local-current-padding: var(--padding-xl);
+        height: 48px;
+        padding: 0 var(--local-current-padding);
+        gap: var(--padding-s);
+        font-size: 16px;
+        letter-spacing: 0.32px;
+
+        &.outlined {
+            padding: 0 calc(var(--padding-xl) - 1px);
+        }
+
+        .icon {
+            padding: 0;
+            width: 24px;
+            height: 24px;
+        }
+    }
+    &.medium {
+        --local-current-padding: var(--padding-l);
+        height: 36px;
+        padding: 0 var(--local-current-padding);
+        gap: var(--padding-s);
+        font-size: 15px;
+        letter-spacing: 0.15px;
+
+        &.outlined {
+            padding: 0 calc(var(--padding-l) - 1px);
+        }
+
+        .icon {
+            padding: 0;
+            width: 20px;
+            height: 20px;
+        }
+    }
+    &.small {
+        --local-current-padding: var(--padding-m);
+        height: 28px;
+        padding: 0 var(--local-current-padding);
+        gap: var(--padding-xs);
+        font-size: 13px;
+
+        &.outlined {
+            padding: 0 calc(var(--padding-m) - 1px);
+        }
+
+        .icon {
+            padding: 0;
+            width: 16px;
+            height: 16px;
+        }
+    }
+
+    &.edgeTop {
+        margin-top: calc(-1 * var(--local-current-padding) / 2);
+    }
+    &.edgeRight {
+        margin-right: calc(-1 * var(--local-current-padding) / 2);
+    }
+    &.edgeBottom {
+        margin-bottom: calc(-1 * var(--local-current-padding) / 2);
+    }
+    &.edgeLeft {
+        margin-left: calc(-1 * var(--local-current-padding) / 2);
+    }
+
+    &:hover,
+    &:active,
+    &.focused {
+        &.tertiary,
+        &.outlined {
+            &.accent {
+                background-color: var(--color-components-background-accent-pale);
+            }
+            &.negative {
+                background-color: var(--color-components-background-negative-pale);
+            }
+            &.positive {
+                background-color: var(--color-components-background-positive-pale);
+            }
+            &.neutral {
+                background-color: var(--color-components-background-neutral-pale);
+            }
+            &.contrast {
+                background-color: var(--color-components-background-contrast-pale);
+            }
+        }
+    }
+
+    &:hover:not(&.focused) {
+        .overlayBackground {
+            background-color: var(--color-states-primary-hover);
+        }
+        &.primary:not(&.contrast),
+        &.contrast:not(&.primary) {
+            .overlayBackground {
+                background-color: var(--color-states-invert-hover);
+            }
+        }
+    }
+    &:active:not(&.focused) {
+        .overlayBackground {
+            background-color: var(--color-states-primary-pressing);
+        }
+        &.primary:not(&.contrast),
+        &.contrast:not(&.primary) {
+            .overlayBackground {
+                background-color: var(--color-states-invert-pressing);
+            }
+        }
+    }
+    &:disabled {
+        pointer-events: none;
+        .overlay {
+            background-color: var(--color-states-primary-disabled);
+        }
+        &.contrast {
+            .overlay {
+                background-color: var(--color-states-invert-disabled);
+            }
+        }
+    }
+    &.pale:not(&:hover, &:disabled, &:active) {
+        .overlay {
+            background-color: var(--color-states-primary-pale);
+        }
+        &.contrast {
+            .overlay {
+                background-color: var(--color-states-invert-pale);
+            }
+        }
+    }
+
+    .overlay,
+    .overlayBackground {
+        position: absolute;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+    }
+
+    .overlay {
+        z-index: 2;
+    }
+
+    .icon {
+        z-index: 1;
+        path {
+            fill: currentColor;
+        }
+    }
+
+    .endIcon {
+        z-index: 1;
+        margin-left: auto;
+    }
+}

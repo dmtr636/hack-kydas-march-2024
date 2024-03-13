@@ -1,0 +1,134 @@
+.container {
+    border-radius: var(--padding-m, 12px);
+    border: 1px solid var(--color-components-stroke-neutral-pale, #E6E6E6);
+    background: var(--color-components-background-contrast, #FFF);
+}
+
+.inputContainer {
+    width: 481px;
+}
+
+.searchContent {
+    margin: 20px 32px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.buttonAddContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+}
+
+.buttonlist {
+    display: flex;
+    gap: 16px;
+    padding: 24px 32px;
+}
+
+.buttonContainer {
+
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--color-components-stroke-neutral-pale, #E6E6E6);
+}
+
+.createButton {
+    padding: 23px 32px;
+    border-left: 1px solid var(--color-components-stroke-neutral-pale, #E6E6E6);
+
+}
+
+.matrixSort {
+    background: #FAFBFC;
+    padding-right: 32px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    background-color: #fff;
+    opacity: 1;
+    z-index: 3;
+}
+
+.reversButton {
+    transform: rotate(180deg);
+}
+
+.sortIcon {
+    margin-left: 33px;
+}
+
+.sortID {
+
+    color: #070707;
+    opacity: 0.6;
+    font-family: Manrope;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    margin-left: 34px;
+    padding-left: 18px;
+    display: flex;
+    align-items: center;
+    height: 60px;
+    border-left: 1px solid var(--color-components-stroke-neutral-pale, #E6E6E6);
+}
+
+.sortName {
+
+    color: #070707;
+    opacity: 0.6;
+    font-family: Manrope;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    margin-left: 25px;
+}
+
+.sortType {
+    margin-left: 117px;
+}
+
+.sortDate {
+    margin-left: 28px;
+}
+
+.sortStatus {
+    margin-left: 20px;
+}
+
+.sortCount {
+    margin-left: 49px;
+}
+
+.sortSegment {
+    margin-left: 20px;
+    color: #070707;
+    opacity: 0.6;
+    font-family: Manrope;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.nf {
+    padding-left: 32px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    color: var(--color-components-text-neutral, #070707);
+    font-family: Manrope;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    letter-spacing: 0.32px;
+    display: flex;
+    gap: 16px;
+    /* 28.8px */
+}

@@ -1,0 +1,21 @@
+.list {
+    padding: var(--padding-s);
+    display: grid;
+    gap: var(--padding-s);
+
+    &.accent {
+        --local-divider-color: var(--color-components-stroke-accent-pale);
+    }
+
+    &.neutral {
+        --local-divider-color: var(--color-components-stroke-neutral-pale);
+    }
+}
+
+.divider {
+    border-top: 1px solid var(--local-divider-color);
+
+    &:last-child {
+        display: none;
+    }
+}

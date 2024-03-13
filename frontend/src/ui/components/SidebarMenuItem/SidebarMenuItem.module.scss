@@ -1,0 +1,15 @@
+.menuItem {
+    position: relative;
+}
+
+.submenu {
+    position: fixed;
+    width: 221px;
+    margin-left: var(--padding-m);
+    border-radius: 0 var(--main-xs) var(--main-xs) 0;
+    border-left: 1px solid var(--color-components-stroke-contrast);
+    background: var(--color-components-background-contrast-pale);
+    padding: var(--padding-m);
+    display: grid;
+    gap: var(--padding-s);
+}

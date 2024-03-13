@@ -1,0 +1,102 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: "Manrope", sans-serif;
+}
+
+a {
+    text-decoration: none;
+    cursor: pointer;
+    -webkit-user-drag: none;
+}
+
+button {
+    border: none;
+    cursor: pointer;
+    background: none;
+    user-select: none;
+}
+
+button:disabled {
+    cursor: default;
+    pointer-events: none;
+}
+
+img,
+svg {
+    display: block;
+}
+
+input,
+textarea {
+    border: none;
+    outline: none;
+    background: none;
+}
+
+h5 {
+    color: var(--color-components-text-neutral-secondary);
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 120%;
+}
+
+h4 {
+    color: var(--color-components-text-neutral);
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 120%;
+}
+
+.MuiBarElement-root:nth-child(1) {
+    fill: #FFB35D; // Replace "yourColor" with the desired color code
+}
+
+.MuiBarElement-root:nth-child(2) {
+    fill: #965326; // Replace "yourColor" with the desired color code
+}
+
+.MuiBarElement-root:nth-child(3) {
+    fill: #603D1B; // Replace "yourColor" with the desired color code
+}
+
+.MuiBarElement-root:nth-child(4) {
+    fill:
+        #FFE898; // Replace "yourColor" with the desired color code
+}
+
+.MuiBarElement-root:nth-child(5) {
+    fill: 
+    #C1A13C; // Replace "yourColor" with the desired color code
+}
+
+.MuiBarElement-root:nth-child(6) {
+    fill: #5D641E;; // Replace "yourColor" with the desired color code
+}
+
+.MuiBarElement-root:nth-child(7) {
+    fill: #BAD0C4;; // Replace "yourColor" with the desired color code
+}
+
+.MuiBarElement-root:nth-child(8) {
+    fill: #7CAED1; // Replace "yourColor" with the desired color code
+}
+
+.MuiBarElement-root:nth-child(9) {
+    fill: #98D3F1; // Replace "yourColor" with the desired color code
+}
+
+.MuiBarElement-root:nth-child(10) {
+    fill: #94D0B3; // Replace "yourColor" with the desired color code
+}
+.MuiChartsAxis-tickLabel .MuiChartsAxis-tickLabel{
+    display: none;
+    
+}
+.MuiChartsAxis-directionX .MuiChartsAxis-tickContainer .MuiChartsAxis-tickLabel{
+    display: none;
+}
+.MuiChartsLegend-root {
+    display: none;
+}

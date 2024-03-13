@@ -1,0 +1,80 @@
+.counter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    font-weight: 600;
+
+    &.primary {
+        &.accent {
+            color: var(--color-components-text-contrast);
+            background-color: var(--color-components-background-accent);
+        }
+        &.negative {
+            color: var(--color-components-text-contrast);
+            background-color: var(--color-components-background-negative);
+        }
+        &.positive {
+            color: var(--color-components-text-contrast);
+            background-color: var(--color-components-background-positive);
+        }
+        &.neutral {
+            color: var(--color-components-text-contrast);
+            background-color: var(--color-components-background-neutral);
+        }
+        &.contrast {
+            color: var(--color-components-text-neutral);
+            background-color: var(--color-components-background-contrast);
+        }
+    }
+    &.secondary {
+        background-color: var(--color-components-background-contrast);
+        &.contrast {
+            background-color: var(--color-components-background-neutral);
+        }
+    }
+    &.secondary,
+    &.outlined {
+        &.accent {
+            color: var(--color-components-text-accent);
+        }
+        &.negative {
+            color: var(--color-components-text-negative);
+        }
+        &.positive {
+            color: var(--color-components-text-positive);
+        }
+        &.neutral {
+            color: var(--color-components-text-neutral);
+        }
+        &.contrast {
+            color: var(--color-components-text-contrast);
+        }
+    }
+    &.outlined {
+        border: 1px solid currentColor;
+    }
+
+    &.large {
+        width: 28px;
+        height: 28px;
+        font-size: 16px;
+        letter-spacing: 0.32px;
+    }
+    &.medium {
+        width: 24px;
+        height: 24px;
+        font-size: 13px;
+    }
+    &.small {
+        width: 20px;
+        height: 20px;
+        font-size: 12px;
+    }
+
+    &.bigValue {
+        padding: 3px 4px;
+        width: auto;
+        border-radius: 4px;
+    }
+}

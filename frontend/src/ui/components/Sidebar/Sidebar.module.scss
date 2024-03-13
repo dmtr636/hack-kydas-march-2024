@@ -1,0 +1,46 @@
+.sidebar {
+    height: 100%;
+    padding: var(--padding-xxl) var(--padding-xxxl);
+    background: var(--color-components-background-contrast-pale);
+    border-radius: 0 var(--main-xs) var(--main-xs) 0;
+    transition: width 0.3s ease-out;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+
+    &.collapsed {
+        .header {
+            justify-content: end;
+        }
+        .collapseButton {
+            transform: scaleX(-1);
+        }
+    }
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.logo {
+    flex-shrink: 0;
+}
+
+.collapseButton {
+    margin: 0 calc(-1 * var(--padding-s));
+    transition: transform 0.3s ease-out;
+}
+
+.menu {
+    margin: var(--margin-s) calc(-1 * var(--padding-l)) 0;
+    display: grid;
+    gap: var(--padding-m);
+}
+
+.footer {
+    margin-top: auto;
+    border-top: 1px solid var(--color-components-stroke-contrast);
+}
