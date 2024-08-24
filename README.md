@@ -1,5 +1,8 @@
 # Платформа ценообразования Авито
 
+![Spring](https://img.shields.io/badge/spring-%236DB33F.svg?style=for-the-badge&logo=spring&logoColor=white)
+![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
+
 Сервис предоставляет админ панель, которая предназначена для аналитиков и позволяет устанавливать, изменять и удалять цены для узлов дерева локаций и категорий.
 
 ## Структура сервиса
